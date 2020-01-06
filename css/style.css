@@ -50,12 +50,30 @@ strong {
 }
 
 /*------------------------------------------------------------------------------------------------- HEADER*/
-header {
+.header {
 	color: #2819A5;
 	font-family: Grotesk;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+.header-fixed {
+	position: fixed;
+	left: 0;
+	right: 0;
+	padding: 20px 80px 20px 80px;
+	box-sizing: content-box;
+	background-color: #FFFFFF;
+	top: 0;
+	z-index: 2;
+	box-shadow: 0 2px 20px 0 rgba(0,0,0,0.12);
+}
+
+@media screen and (max-width: 900px) {
+.header-fixed {
+	display: none;
+}
 }
 
 h1 {
@@ -491,6 +509,20 @@ h3 {
 	flex-wrap: wrap;
 }
 }
+
+.video-wrapper > video {
+	position: absolute;
+    top: 50%; 
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 100%; 
+    min-height: 100%; 
+    width: auto; 
+    height: auto;
+    z-index: -1000; 
+    overflow: hidden;
+}
 /*------------------------------------------------------------------------------------------------- TEXT SECTION*/
 
 /*------------------------------------------------------------------------------------------VIDEO SLIDER SECTION*/
@@ -546,13 +578,8 @@ h3 {
 	align-items: center;
 	justify-content: center;
 	position: relative;
-}
-
-.bg-video-project-1 {
-	background-image: url('../assets/img/videos/video-1.png');
-	background-repeat: no-repeat;
+	overflow: hidden;
 	background-size: cover;
-	background-position: center;
 }
 
 .bg-video-project-2 {
@@ -563,6 +590,10 @@ h3 {
 	z-index: 2 !important;
 }
 
+.cta-play::before {
+	content:'Play';
+}
+
 .cta-play {
 	background: #2819A5;
 	box-shadow: 0 2px 20px 0 rgba(40,25,165,0.10);
@@ -570,7 +601,7 @@ h3 {
 	font-size: 17px;
 	color: #FFFFFF;
 	letter-spacing: 0;
-	width: 130px;
+	width: 110px;
 	height: 50px;
 	display: flex;
 	justify-content: center;
@@ -582,6 +613,14 @@ h3 {
     transform-style: preserve-3d;
   	backface-visibility: hidden;
   	transition: all .5s ease;
+}
+
+.controls-video-on {
+	bottom: 30px;
+	right: 30px; 
+	font-size: 13px;
+	text-align: center;
+
 }
 
 @media screen and (max-width: 500px) {
@@ -615,14 +654,17 @@ h3 {
 }
 
 .tag {
-	background-color: rgb(255, 255, 255, 0.2);;
 	border-radius: 20px;
 	font-family: Grotesk;
 	font-size: 12px;
-	color: #FFFFFF;
 	text-align: center;
 	padding: 10px 20px 08px 20px;
 	text-transform: uppercase;
+}
+
+.t-fff {
+	background-color: rgb(255, 255, 255, 0.2);
+	color: #FFFFFF;
 }
 
 .tag:nth-child(2) {

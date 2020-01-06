@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<header data-aos="fade-in" data-aos-easing="ease-in" data-aos-duration="500">
+	<header class="header" data-aos="fade-in" data-aos-easing="ease-in" data-aos-duration="500">
 		<h1><strong>Magoprod Production </strong>  Audiovisuelle</h1>
 		<div class="main-background-div">
 			<img class="main-background floating" src="assets/img/header/main-background.svg">
@@ -127,10 +127,13 @@
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<div class="video-wrapper bg-video-project-1">
-						<a class="cta-play-zindex" href="#!"><div class="cta-play magnet">Play</div></a>
+						<a id="playVid" class="cta-play-zindex" href="#!"><div class="cta-play magnet"></div></a>
+						<video id="video">
+							<source src="assets/videos/1.mp4" type="video/webm">
+						</video>
 						<div class="tag-wrapper">
-							<div class="tag">Corporate</div>
-							<div class="tag">3D</div>
+							<div class="tag t-fff">Corporate</div>
+							<div class="tag t-fff">3D</div>
 						</div>
 					</div>
 					<div class="infos-videos">
@@ -139,9 +142,8 @@
 				</div>
 				<div class="swiper-slide">
 					<div class="video-wrapper bg-video-project-2">
-						<a class="cta-play-zindex" href="#!"><div class="cta-play magnet ">Play</div></a>
 						<div class="tag-wrapper">
-							<div class="tag">Jeunesse</div>
+							<div class="tag t-fff">Jeunesse</div>
 						</div>
 					</div>
 					<div class="infos-videos">
@@ -183,9 +185,22 @@
 
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script>
 		AOS.init();
 	</script>
+	<script type="text/javascript">
+		$(function() {                       
+		  $(".cta-play-zindex").click(function() {  
+		    $(this).addClass("controls-video-on");
+		  });
+		});
+	</script>
+	<script>
+		document.getElementById('playVid').onclick = function (){
+		    document.getElementById('video').play();
+		};
+</script>
 	<script>
 		var mySwiper = new Swiper ('.swiper-container', {
 		// Optional parameters
@@ -208,6 +223,16 @@
 			el: '.swiper-scrollbar',
 		},
 		})
+</script>
+<script>
+		$(window).scroll(function() {    
+		    var scroll = $(window).scrollTop();
+		if (scroll > 500) {
+		        $(".header").addClass("header-fixed");
+		    } else {
+		        $(".header").removeClass("header-fixed");
+		    }
+		});
 </script>
 <script src="js/magnet-mouse.min.js"></script>
 </body>
