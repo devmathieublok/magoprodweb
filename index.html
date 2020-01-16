@@ -15,7 +15,7 @@
 	<title>Mago Production</title>
 </head>
 
-<body>
+<body class="wrapper">
 	<header class="header" data-aos="fade-in" data-aos-easing="ease-in" data-aos-duration="500">
 		<h1><strong>Magoprod Production </strong>  Audiovisuelle</h1>
 		<div class="main-background-div">
@@ -24,9 +24,9 @@
 
 		<nav>
 			<ul class="nav-ul">
-				<li><a href="#first-link-p">Notre savoir faire<img class="hover-link-circle magnet-nav" src="../assets/img/header/hover-link-circle.svg"></li></a>
-				<li><a href="#videos-section">Nos réalisations<img class="hover-link-circle" src="../assets/img/header/hover-link-circle.svg"></a></li>
-				<li><a href="#references-section">Nos références<img class="hover-link-circle" src="../assets/img/header/hover-link-circle.svg"></a></li>
+				<li><a href="#first-link-p">Notre savoir faire<img class="hover-link-circle magnet-nav" src="assets/img/header/hover-link-circle.svg"></li></a>
+				<li><a href="#videos-section">Nos réalisations<img class="hover-link-circle" src="assets/img/header/hover-link-circle.svg"></a></li>
+				<li><a href="#references-section">Nos références<img class="hover-link-circle" src="assets/img/header/hover-link-circle.svg"></a></li>
 			</ul>
 		</nav>
 	</header>
@@ -127,9 +127,8 @@
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<div class="video-wrapper bg-video-project-1">
-						<a id="playVid" class="cta-play-zindex" href="#!"><div class="cta-play magnet"></div></a>
-						<video id="video">
-							<source src="assets/videos/1.mp4" type="video/webm">
+						<video controls id="video">
+							<source src="assets/videos/1.mp4" type="video/mp4">
 						</video>
 						<div class="tag-wrapper">
 							<div class="tag t-fff">Corporate</div>
@@ -141,9 +140,13 @@
 					</div>
 				</div>
 				<div class="swiper-slide">
-					<div class="video-wrapper bg-video-project-2">
+					<div class="video-wrapper bg-video-project-1">
+						<video controls id="video">
+							<source src="assets/videos/1.mp4" type="video/mp4">
+						</video>
 						<div class="tag-wrapper">
 							<div class="tag t-fff">Jeunesse</div>
+							<div class="tag t-fff">3D</div>
 						</div>
 					</div>
 					<div class="infos-videos">
@@ -189,24 +192,12 @@
 	<script>
 		AOS.init();
 	</script>
-	<script type="text/javascript">
-		$(function() {                       
-		  $(".cta-play-zindex").click(function() {  
-		    $(this).addClass("controls-video-on");
-		  });
-		});
-	</script>
-	<script>
-		document.getElementById('playVid').onclick = function (){
-		    document.getElementById('video').play();
-		};
-</script>
 	<script>
 		var mySwiper = new Swiper ('.swiper-container', {
 		// Optional parameters
 		direction: 'horizontal',
-		loop: true,
-		
+		autoHeight: true, //enable auto height
+		loop: true,		
 		// If we need pagination
 		pagination: {
 			el: '.swiper-pagination',
